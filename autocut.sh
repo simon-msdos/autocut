@@ -17,11 +17,11 @@ RESET='\033[0m'
 banner() {
   echo -e "${CYAN}"
   cat << "EOF"
-    ___        __            __           __     
-   /   | _____/ /_____  ____/ /___ ______/ /__  __
-  / /| |/ ___/ __/ __ \/ __  / __ `/ ___/ / _ \/ /
- / ___ / /__/ /_/ /_/ / /_/ / /_/ / /__/ /  __/ / 
-/_/  |_\___/\__/\____/\__,_/\__,_/\___/_/\___/_/  
+  ____ ___ __  __  ___  _   _           __  __ ____  ____   ___  ____  
+ / ___|_ _|  \/  |/ _ \| \ | |         |  \/  / ___||  _ \ / _ \/ ___| 
+ \___ \| || |\/| | | | |  \| |  _____  | |\/| \___ \| | | | | | \___ \ 
+  ___) | || |  | | |_| | |\  | |_____| | |  | |___) | |_| | |_| |___) |
+ |____/___|_|  |_|\___/|_| \_|         |_|  |_|____/|____/ \___/|____/  
 
      Auto Video Splitter by simon-msdos
 EOF
@@ -71,7 +71,6 @@ check_ffmpeg() {
   fi
 }
 
-# ─── Main Function ──────────────────────────────
 main() {
   banner
   install_self
@@ -98,7 +97,6 @@ main() {
 
   check_ffmpeg
 
-  # Detect input type
   if [[ -d "$INPUT_PATH" ]]; then
     OUTPUT_DIR="$INPUT_PATH/output"
     mkdir -p "$OUTPUT_DIR"
@@ -115,7 +113,6 @@ main() {
   echo -e "${CYAN}🗂️ Output directory:${RESET} $OUTPUT_DIR"
   echo -e "${CYAN}⏳ Chunk size:${RESET} $CHUNK_TIME (${CHUNK_SECONDS} seconds)"
 
-  # Process each file
   for input_file in "${FILES[@]}"; do
     [[ -f "$input_file" ]] || continue
     filename=$(basename -- "$input_file")
