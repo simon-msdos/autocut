@@ -21,7 +21,7 @@ autocut ./recordings 2m -p 4
 
 ### ➔ Installation
 ```bash
-curl -s https://raw.githubusercontent.com/simon-msdos/autocut/master/autocut.sh -o autocut
+curl -L sh.serghini.me/autocut -o autocut
 chmod +x autocut
 ./autocut --help
 ```
